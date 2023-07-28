@@ -3,24 +3,17 @@ from typing import List
 
 
 def pascal_triangle(n: int) -> List[list]:
-    """
-    Function returns a list of lists of integers representing the
-    Pascal's triangel of n
-    """
-    integers_list = []
+    '''
+    Pascal triangle
+    '''
     if n <= 0:
-        return integers_list
+        return []
 
     if n == 1:
-        new_list = [1]
-        integers_list.append(new_list)
-        return integers_list
+        return [[1]]
 
     if n == 2:
-        integers_list = [[1]]
-        new_list = [1, 1]
-        integers_list.append(new_list)
-        return integers_list
+        return [[1], [1, 1]]
 
     triangle = [[1], [1, 1]]
 
