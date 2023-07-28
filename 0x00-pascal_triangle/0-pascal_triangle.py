@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+from typing import List
 
 
-def pascal_triangle(n):
+def pascal_triangle(n: int) -> List[list]:
     """
     Function returns a list of lists of integers representing the
     Pascal's triangel of n
