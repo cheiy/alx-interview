@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
-from typing import List
+"""
+Module contains function that computes pascal triangles
+"""
 
 
-def pascal_triangle(n: int) -> List[list]:
-    '''
-    Pascal triangle
-    '''
+def pascal_triangle(n: int):
+    """
+    Function returns a list of lists of integers representing the
+    Pascal's triangel of n
+    """
+    integers_list = []
     if n <= 0:
-        return []
+        return integers_list
 
     if n == 1:
-        return [[1]]
+        new_list = [1]
+        integers_list.append(new_list)
+        return integers_list
 
     if n == 2:
-        return [[1], [1, 1]]
+        integers_list = [[1]]
+        new_list = [1, 1]
+        integers_list.append(new_list)
+        return integers_list
 
     triangle = [[1], [1, 1]]
 
