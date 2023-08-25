@@ -9,14 +9,13 @@ def validUTF8(data):
     """
     Method determines if a given data set represents a valid UTF-8 encoding
     """
-    flag = 0
+    flag = []
     for char in data:
         if char % 128 == 0:
-            flag = 0
-            break
+            flag.append(0)
         else:
-            flag = 1
-    if flag == 0:
+            flag.append(1)
+    if flag.__contains__(0):
         return False
     else:
         return True
