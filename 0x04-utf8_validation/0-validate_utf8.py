@@ -11,7 +11,7 @@ def validUTF8(data):
     """
     flag = []
     for char in data:
-        if char % 256 == 0:
+        if char % 256 == 0 or char % 128 == 0:
             flag.append(0)
         else:
             flag.append(1)
