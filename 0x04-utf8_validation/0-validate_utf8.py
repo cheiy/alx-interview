@@ -13,9 +13,9 @@ def validUTF8(data):
     for char in data:
         if char == 0 or char == 00 or char == 000:
             flag.append(1)
+        elif char < 128 and char > -1:
+            flag.append(1)
         elif char % 128 == 0:
-            flag.append(0)
-        elif char % 256 == 0:
             flag.append(0)
         else:
             flag.append(1)
