@@ -15,10 +15,23 @@ def validUTF8(data):
             flag.append(1)
         elif char < 128 and char > -1:
             flag.append(1)
-        elif char % 256 == 0:
-            flag.append(0)
+        elif char < 2048:
+            if char % 256 == 0:
+                flag.append(0)
+            else:
+                flag.append(1)
+        elif char < 65536:
+            if char % 256 == 0:
+                flag.append(0)
+            else:
+                flag.append(1)
+        elif char < 2097152:
+            if char % 256 == 0:
+                flag.append(1)
+            else:
+                flag.append(0)
         else:
-            flag.append(1)
+            flag.append(0)
     if flag.__contains__(0):
         return False
     else:
