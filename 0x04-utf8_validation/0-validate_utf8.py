@@ -13,6 +13,7 @@ def validUTF8(data):
     for char in data:
         if char % 128 == 0:
             flag = 0
+            break
         else:
             flag = 1
     if flag == 0:
