@@ -9,30 +9,19 @@ def validUTF8(data):
     """
     Method determines if a given data set represents a valid UTF-8 encoding
     """
-    flag = []
+    count = 0
     for char in data:
-        if char == 0 or char == 00 or char == 000:
-            flag.append(1)
-        elif char < 128 and char > -1:
-            flag.append(1)
-        elif char < 2048:
-            if char % 256 == 0:
-                flag.append(0)
-            else:
-                flag.append(1)
-        elif char < 65536:
-            if char % 256 == 0:
-                flag.append(0)
-            else:
-                flag.append(1)
-        elif char < 2097152:
-            if char % 256 == 0:
-                flag.append(1)
-            else:
-                flag.append(0)
+        if count == 0:
+            if char >> 5 == 6:
+                count = 1
+            elif char >> 4 == 14:
+                count = 2
+            elif char >> 3 == 30:
+                count = 3
+            elif char >> 7 != 0:
+                return False
         else:
-            flag.append(0)
-    if flag.__contains__(0):
-        return False
-    else:
-        return True
+            if char >> 6 != 2:
+                return False
+            count -= 1
+    return (count == 0)
